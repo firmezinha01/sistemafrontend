@@ -1,5 +1,3 @@
-
-
 // const API_URL = 'http://localhost:8080/api/appointments';
 const API_BASE_URL = 'https://sistemabackend-tsn1.onrender.com/api';
 
@@ -18,17 +16,6 @@ async function loadAppointments(filters = {}) {
 
     // ...continua normalmente
 
-// async function loadAppointments(filters = {}) {
-//   const params = new URLSearchParams();
-//   if (filters.from) params.append('from', filters.from);
-//   if (filters.to) params.append('to', filters.to);
-//   if (filters.search) params.append('search', filters.search);
-
-//   try {
-//     const response = await fetch(`${API_BASE_URL}?${params.toString()}`);
-//     if (!response.ok) throw new Error('Erro ao buscar agendamentos');
-//     const appointments = await response.json();
-
     appointments.sort((a, b) => {
       const dateA = new Date(a.date);
       const dateB = new Date(b.date);
@@ -36,6 +23,9 @@ async function loadAppointments(filters = {}) {
       if (dateA > dateB) return 1;
       return a.person_name.localeCompare(b.person_name);
     });
+
+
+    
 
     const grouped = groupByDate(appointments);
     list.innerHTML = Object.entries(grouped).map(([date, items]) => `
@@ -88,9 +78,20 @@ document.getElementById('exportPDF').addEventListener('click', () => {
 function groupByDate(appointments) {
   const grouped = {};
   appointments.forEach(appt => {
-    const date = new Date(appt.date).toLocaleDateString();
+    const date = appt.date; // usa diretamente o valor sem converter
     if (!grouped[date]) grouped[date] = [];
     grouped[date].push(appt);
   });
   return grouped;
 }
+
+
+// function groupByDate(appointments) {
+//   const grouped = {};
+//   appointments.forEach(appt => {
+//     const date = new Date(appt.date).toLocaleDateString();
+//     if (!grouped[date]) grouped[date] = [];
+//     grouped[date].push(appt);
+//   });
+//   return grouped;
+// }

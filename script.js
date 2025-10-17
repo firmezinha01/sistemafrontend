@@ -119,14 +119,14 @@ async function loadAppointments() {
   state.appointments = await api(`/appointments?${params.toString()}`);
   renderTable();
 }
-
 function renderTable() {
+  const formatDate = (iso) => new Date(iso).toISOString().split('T')[0];
   const tb = $('#tbl tbody');
   if (!tb) return;
   tb.innerHTML = state.appointments.map(a => `
     <tr data-id="${a.id}">
       <td><input value="${a.person_name}" data-field="person_name" /></td>
-      <td><input type="date" value="${a.date}" data-field="date" /></td>
+      <td><input type="date" value="${formatDate(a.date)}" data-field="date" /></td>
       <td>
         <select data-field="scheduled_by">
           <option value="">— Selecione —</option>
@@ -140,6 +140,27 @@ function renderTable() {
     </tr>
   `).join('');
 }
+
+// function renderTable() {
+//   const tb = $('#tbl tbody');
+//   if (!tb) return;
+//   tb.innerHTML = state.appointments.map(a => `
+//     <tr data-id="${a.id}">
+//       <td><input value="${a.person_name}" data-field="person_name" /></td>
+//       <td><input type="date" value="${a.date}" data-field="date" /></td>
+//       <td>
+//         <select data-field="scheduled_by">
+//           <option value="">— Selecione —</option>
+//           ${state.employees.map(e => `<option ${a.scheduled_by === e.id ? 'selected' : ''} value="${e.id}">${e.name}</option>`).join('')}
+//         </select>
+//       </td>
+//       <td class="action">
+//         <button data-action="save">Salvar</button>
+//         <button class="danger" data-action="delete">Excluir</button>
+//       </td>
+//     </tr>
+//   `).join('');
+// }
 
 $('#formAppointment')?.addEventListener('submit', async (e) => {
   e.preventDefault();
