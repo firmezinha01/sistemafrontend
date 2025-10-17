@@ -143,7 +143,16 @@ function renderTable() {
 
 $('#formAppointment')?.addEventListener('submit', async (e) => {
   e.preventDefault();
-  const data = Object.fromEntries(new FormData(e.target));
+const formData = new FormData(e.target);
+const data = Object.fromEntries(formData);
+
+// Corrige o campo de data para evitar UTC
+if (formData.has('date')) {
+  const rawDate = formData.get('date'); // ex: '2025-10-30'
+  data.date = rawDate.split('T')[0]; // garante que só a data seja enviada
+}
+  
+  // const data = Object.fromEntries(new FormData(e.target));
   try {
     await api('/appointments', {
       method: 'POST',
