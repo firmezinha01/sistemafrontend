@@ -12,9 +12,22 @@ async function loadAppointments(filters = {}) {
   if (filters.search) params.append('search', filters.search);
 
   try {
-    const response = await fetch(`${API_URL}?${params.toString()}`);
+    const response = await fetch(`${API_BASE_URL}/appointments?${params.toString()}`);
     if (!response.ok) throw new Error('Erro ao buscar agendamentos');
     const appointments = await response.json();
+
+    // ...continua normalmente
+
+// async function loadAppointments(filters = {}) {
+//   const params = new URLSearchParams();
+//   if (filters.from) params.append('from', filters.from);
+//   if (filters.to) params.append('to', filters.to);
+//   if (filters.search) params.append('search', filters.search);
+
+//   try {
+//     const response = await fetch(`${API_BASE_URL}?${params.toString()}`);
+//     if (!response.ok) throw new Error('Erro ao buscar agendamentos');
+//     const appointments = await response.json();
 
     appointments.sort((a, b) => {
       const dateA = new Date(a.date);

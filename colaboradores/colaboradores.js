@@ -8,7 +8,7 @@ const API_BASE_URL = 'https://sistemabackend-tsn1.onrender.com/api';
 
 
 function api(path, options = {}) {
-  return fetch(`${API_BASE}${path}`, {
+  return fetch(`${API_BASE_URL}${path}`, {
     headers: { 'Content-Type': 'application/json' },
     ...options
   })

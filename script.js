@@ -1,8 +1,6 @@
 // const API = window.API_BASE || 'http://localhost:8080/api';
 const API_BASE_URL = 'https://sistemabackend-tsn1.onrender.com/api';
 
-
-
 // Utilitários
 const $ = (sel) => document.querySelector(sel);
 const $$ = (sel) => Array.from(document.querySelectorAll(sel));
@@ -15,7 +13,7 @@ const state = {
 
 // Requisição genérica
 async function api(path, options = {}) {
-  const res = await fetch(`${API}${path}`, {
+  const res = await fetch(`${API_BASE_URL}${path}`, {
     headers: { 'Content-Type': 'application/json' },
     ...options
   });
