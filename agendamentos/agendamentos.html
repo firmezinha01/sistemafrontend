@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agendamentos</title>
+  <link rel="stylesheet" href="agendamentos.css" />
+  
+</head>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agendados</title>
+  <link rel="stylesheet" href="agendamentos.css" />
+</head>
+<body>
+  <main>
+    <section class="card">
+      <h2>Agendados</h2>
+
+      <div class="grid">
+        <label>
+          De:
+          <input type="date" id="filterFrom" />
+        </label>
+        <label>
+          Até:
+          <input type="date" id="filterTo" />
+        </label>
+        <label>
+          Buscar por nome:
+          <input type="text" id="filterSearch" placeholder="Digite o nome" />
+        </label>
+      </div>
+
+      <div class="grid">
+        <button id="applyFilters" class="accent">Filtrar</button>
+        <button id="clearFilters">Limpar Filtros</button>
+        <button id="exportPDF">Exportar PDF</button>
+        <button id="exportExcel">Exportar Excel</button>
+      </div>
+
+      <ul id="appointmentList" class="list"></ul>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="agendamentos.js"></script>
+</body>
+</html>

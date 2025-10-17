@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agendamentos</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <main>
+        <!-- Formulário de agendamento -->
+        <section class="card">
+
+            <h2>Novo Agendamento</h2>
+            <div class="botoes">
+            <button type="button" onclick="window.location.href='/agendamentos/agendamentos.html'">Agendados</button>
+            <button type="button" onclick="window.location.href='/colaboradores/colaboradores.html'">
+                Colaboradores
+            </button>
+            </div>
+
+
+            <form id="formAppointment">
+                <div class="grid">
+                    <label>
+                        Nome
+                        <input name="person_name" type="text" required />
+                    </label>
+                    <label>
+                        Data
+                        <input name="date" type="date" required />
+                    </label>
+                    <label>
+                        Colaborador
+                        <select name="scheduled_by" id="employeeSelect" required>
+                            <option value="">— Selecione —</option>
+                        </select>
+                    </label>
+                    <label>
+                        Cadastrar
+                        <button type="submit">Salvar</button>
+                    </label>
+                </div>
+
+
+            </form>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

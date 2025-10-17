@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Colaboradores</title>
+  <link rel="stylesheet" href="colaboradores.css" />
+</head>
+<body>
+  <main>
+    <section class="card">
+      <h2>Cadastro de Colaboradores</h2>
+      <div class="grid">
+        <label>
+          Nome
+          <input id="newEmployeeName" type="text" placeholder="Nome do colaborador" required />
+        </label>
+        <label>
+          Função
+          <input id="newEmployeeRole" type="text" placeholder="Função ou cargo" required />
+        </label>
+      </div>
+      <button id="addEmployee" class="accent" type="button">Adicionar</button>
+
+      <h3>Colaboradores cadastrados</h3>
+      <ul id="employeeList" class="list"></ul>
+    </section>
+  </main>
+
+  <script src="colaboradores.js"></script>
+</body>
+</html>

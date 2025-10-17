@@ -1,0 +1,110 @@
+
+:root {
+  --bg: #0b0f14;
+  --card: #121821;
+  --muted: #8aa0b5;
+  --text: #e6edf3;
+  --accent: #60a5fa;
+  --danger: #ef4444;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+main {
+  padding: 24px;
+  display: grid;
+  gap: 24px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid #1f2937;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.2);
+}
+
+h2, h3 {
+  margin-top: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+input, button {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid #233042;
+  background: #0f1520;
+  color: var(--text);
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: var(--accent);
+}
+
+button.accent {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+}
+
+button.accent:hover {
+  background-color: #3b82f6;
+}
+
+.list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #233042;
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+
+.badge {
+  font-size: 12px;
+  opacity: .8;
+}
+
+.action {
+  display: inline-flex;
+  gap: 6px;
+}
+
+.action button {
+  padding: 6px 10px;
+}
+
+.action .danger {
+  border-color: var(--danger);
+}
