@@ -1,39 +1,8 @@
+
+
 // const API_URL = 'http://localhost:8080/api/appointments';
-// const list = document.getElementById('appointmentList');
+const API_BASE_URL = 'https://sistemabackend-tsn1.onrender.com/api';
 
-// async function loadAppointments() {
-//   try {
-//     const response = await fetch(API_URL);
-//     if (!response.ok) throw new Error('Erro ao buscar agendamentos');
-//     const appointments = await response.json();
-
-//     // Ordena por data e nome
-//     appointments.sort((a, b) => {
-//       const dateA = new Date(a.date);
-//       const dateB = new Date(b.date);
-//       if (dateA < dateB) return -1;
-//       if (dateA > dateB) return 1;
-//       return a.person_name.localeCompare(b.person_name);
-//     });
-
-//     list.innerHTML = appointments.map(appt => `
-//       <li>
-//         <strong>${appt.person_name}</strong> — ${new Date(appt.date).toLocaleDateString()}
-//         <br />
-//         <small>Cadastrado por: ${appt.scheduled_by_name || 'Desconhecido'}</small>
-//       </li>
-//     `).join('');
-//   } catch (err) {
-//     console.error(err);
-//     alert('Erro ao carregar agendamentos');
-//   }
-// }
-
-// document.addEventListener('DOMContentLoaded', loadAppointments);
-
-
-
-const API_URL = 'http://localhost:8080/api/appointments';
 const list = document.getElementById('appointmentList');
 
 async function loadAppointments(filters = {}) {
@@ -76,38 +45,6 @@ async function loadAppointments(filters = {}) {
   }
 }
 
-
-// async function loadAppointments(filters = {}) {
-//   const params = new URLSearchParams();
-//   if (filters.from) params.append('from', filters.from);
-//   if (filters.to) params.append('to', filters.to);
-//   if (filters.search) params.append('search', filters.search);
-
-//   try {
-//     const response = await fetch(`${API_URL}?${params.toString()}`);
-//     if (!response.ok) throw new Error('Erro ao buscar agendamentos');
-//     const appointments = await response.json();
-
-//     appointments.sort((a, b) => {
-//       const dateA = new Date(a.date);
-//       const dateB = new Date(b.date);
-//       if (dateA < dateB) return -1;
-//       if (dateA > dateB) return 1;
-//       return a.person_name.localeCompare(b.person_name);
-//     });
-
-//     list.innerHTML = appointments.map(appt => `
-//       <li>
-//         <strong>${appt.person_name}</strong> — ${new Date(appt.date).toLocaleDateString()}
-//         <br />
-//         <small>Cadastrado por: ${appt.scheduled_by_name || 'Desconhecido'}</small>
-//       </li>
-//     `).join('');
-//   } catch (err) {
-//     console.error(err);
-//     alert('Erro ao carregar agendamentos');
-//   }
-// }
 document.getElementById('clearFilters').addEventListener('click', () => {
   document.getElementById('filterFrom').value = '';
   document.getElementById('filterTo').value = '';

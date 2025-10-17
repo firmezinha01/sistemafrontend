@@ -1,4 +1,7 @@
-const API = window.API_BASE || 'http://localhost:8080/api';
+// const API = window.API_BASE || 'http://localhost:8080/api';
+const API_BASE_URL = 'https://sistemabackend-tsn1.onrender.com/api';
+
+
 
 // Utilitários
 const $ = (sel) => document.querySelector(sel);

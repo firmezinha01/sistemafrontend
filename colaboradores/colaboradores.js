@@ -2,8 +2,10 @@
 const $ = (s) => document.querySelector(s);
 const state = { employees: [] };
 
-// URL absoluta para garantir que funcione mesmo fora do backend
-const API_BASE = 'http://localhost:8080/api';
+// const API_BASE = 'http://localhost:8080/api';
+const API_BASE_URL = 'https://sistemabackend-tsn1.onrender.com/api';
+
+
 
 function api(path, options = {}) {
   return fetch(`${API_BASE}${path}`, {
