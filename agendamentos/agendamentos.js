@@ -75,12 +75,29 @@ document.getElementById('exportPDF').addEventListener('click', () => {
   doc.save('agendamentos.pdf');
 });
 
+// function groupByDate(appointments) {
+//   const grouped = {};
+//   appointments.forEach(appt => {
+//     const date = appt.date; // usa diretamente o valor sem converter
+//     if (!grouped[date]) grouped[date] = [];
+//     grouped[date].push(appt);
+//   });
+//   return grouped;
+// }
+function formatDate(dateStr) {
+  const date = new Date(dateStr);
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+  return `${day}/${month}/${year}`;
+}
+
 function groupByDate(appointments) {
   const grouped = {};
   appointments.forEach(appt => {
-    const date = appt.date; // usa diretamente o valor sem converter
-    if (!grouped[date]) grouped[date] = [];
-    grouped[date].push(appt);
+    const formattedDate = formatDate(appt.date);
+    if (!grouped[formattedDate]) grouped[formattedDate] = [];
+    grouped[formattedDate].push(appt);
   });
   return grouped;
 }
