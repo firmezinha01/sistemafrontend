@@ -92,15 +92,31 @@ function formatDate(dateStr) {
   return `${day}/${month}/${year}`;
 }
 
+
 function groupByDate(appointments) {
   const grouped = {};
   appointments.forEach(appt => {
-    const formattedDate = formatDate(appt.date);
+    // Extrai apenas a parte da data (YYYY-MM-DD)
+    const dateOnly = appt.date.split('T')[0];
+    const [year, month, day] = dateOnly.split('-');
+    const formattedDate = `${day}/${month}/${year}`; // dd/mm/yyyy
+
     if (!grouped[formattedDate]) grouped[formattedDate] = [];
     grouped[formattedDate].push(appt);
   });
   return grouped;
 }
+
+
+// function groupByDate(appointments) {
+//   const grouped = {};
+//   appointments.forEach(appt => {
+//     const formattedDate = formatDate(appt.date);
+//     if (!grouped[formattedDate]) grouped[formattedDate] = [];
+//     grouped[formattedDate].push(appt);
+//   });
+//   return grouped;
+// }
 
 
 // function groupByDate(appointments) {
